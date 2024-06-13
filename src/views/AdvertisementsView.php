@@ -16,7 +16,11 @@
             <?php foreach ($advertisements as $advertisement): ?>
             <tr>
                 <td><?php echo htmlspecialchars($advertisement->id); ?></td>
-                <td><?php echo htmlspecialchars($advertisement->userid); ?></td>
+                <?php
+                    $user = $userService->getUserById($advertisement->userid);
+                    $userName = $user->name;
+                ?>
+                <td><?php echo htmlspecialchars($userName); ?></td>
                 <td><?php echo htmlspecialchars($advertisement->title); ?></td>
             </tr>
             <?php endforeach; ?>

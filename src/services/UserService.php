@@ -21,6 +21,19 @@ class UserService {
         return $users;
     }
 
+    public function getUserById($id) {
+        $query = "SELECT id, name FROM users WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user = null;
+        if ($row) {
+            $user = new User($row['id'], $row['name']);
+        }
+        return $user;
+    }
+
 }
 
 ?>
