@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
+    <link rel="stylesheet" href="src/app.css">
 </head>
 <body>
-    <div>
+    <div class="page-content">
         <h1>Users</h1>
+        <p><a href="/php-mvc-app/index">Back to index</a></p>
         <table>
             <tr>
                 <th>ID</th>
@@ -19,7 +21,6 @@
             </tr>
             <?php endforeach; ?>
         </table>
-        <p><a href="/php-mvc-app/index">Back to index</a></p>
     </div>
 </body>
 </html>
