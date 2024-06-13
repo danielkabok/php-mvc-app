@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Set the base directory
+RewriteBase /php-mvc-app/
+
+# Default handler for the directory (hide the "Index of" page)
+DirectoryIndex src/index.php
+
+# Handle exceptions (existing files or directories)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite all other requests to index.php
+RewriteRule ^(.*)$ src/index.php [QSA,L]
